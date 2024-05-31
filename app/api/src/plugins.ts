@@ -11,6 +11,7 @@ export async function plugins(app: FastifyInstance) {
     await registerOpenAPI(app);
     await registerScalar(app);
     app.setErrorHandler((error, request, reply) => {
+        app.log.error(error);
         reply.send(error);
     });
     app.use((req, res, next) => {
