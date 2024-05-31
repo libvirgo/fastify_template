@@ -1,0 +1,26 @@
+{
+  "name": "@app/api",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "babel src -d dist -x \".ts\"",
+    "clean": "rm -rf ./dist",
+    "start": "npm run build && node ./dist/main.js",
+    "test": "npm run build && jest"
+  },
+  "author": "",
+  "license": "ISC",
+  "jest": {
+    "verbose": true,
+    "collectCoverage": true,
+    "coverageDirectory": "dist/coverage",
+    "testPathIgnorePatterns": ["dist"]
+  },
+  "dependencies": {
+    "@fastify/cors": "^9.0.1",
+    "@fastify/middie": "^8.3.1",
+    "@fastify/swagger": "^8.14.0",
+    "@scalar/fastify-api-reference": "^1.23.0",
+    "@template/lib": "file:../../lib",
+    "fastify": "^4.27.0"
+  }
+}
